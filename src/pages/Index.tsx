@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calculator, ShoppingBasket, TrendingUp, Users, Building2, FileText, Shield } from 'lucide-react';
+import { CreateAdminUser } from '@/components/temp/CreateAdminUser';
 
 const Index = () => {
   const features = [
@@ -202,6 +203,11 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Componente temporário para criar usuário admin */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <CreateAdminUser />
+      </div>
     </div>
   );
 };
