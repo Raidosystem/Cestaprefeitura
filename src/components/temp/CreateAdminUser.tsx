@@ -15,8 +15,8 @@ export const CreateAdminUser = () => {
       
       const { data, error } = await supabase.functions.invoke('create-admin-user', {
         body: {
-          email: 'admin@prefeituraes.com',
-          password: 'P@ssw0rd2025',
+          email: 'teste@teste.com',
+          password: 'teste@@',
           full_name: 'Administrador do Sistema',
           cpf: '00000000000',
           phone: '(27) 99999-9999'
@@ -59,8 +59,8 @@ export const CreateAdminUser = () => {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="text-sm text-muted-foreground">
-          <p><strong>Email:</strong> admin@prefeituraes.com</p>
-          <p><strong>Senha:</strong> P@ssw0rd2025</p>
+          <p><strong>Email:</strong> teste@teste.com</p>
+          <p><strong>Senha:</strong> teste@@</p>
           <p><strong>Role:</strong> admin</p>
         </div>
         
