@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Eye, Copy, Calendar, Package, Calculator, Users, FileCheck, Search, Filter, Download, BarChart3 } from 'lucide-react';
+import { Plus, Eye, Copy, Calendar, Package, Calculator, Users, FileCheck, Search, Filter, Download, BarChart3, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +13,7 @@ import { BasketDetails } from '@/components/baskets/BasketDetails';
 import { RegionalFilter } from '@/components/baskets/RegionalFilter';
 import { CMEDSearch } from '@/components/price-analysis/CMEDSearch';
 import { ComplianceReport } from '@/components/reports/ComplianceReport';
+import { useNavigate } from 'react-router-dom';
 
 interface PriceBasket {
   id: string;
@@ -45,6 +46,7 @@ export const PriceBaskets = () => {
   });
   const { profile } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBaskets();
@@ -200,10 +202,20 @@ export const PriceBaskets = () => {
             Sistema especializado para elaboração de cestas de preços em conformidade com o edital
           </p>
         </div>
-        <Button onClick={handleCreateBasket} className="hover-scale">
-          <Plus className="w-4 h-4 mr-2" />
-          Nova Cesta de Preços
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            onClick={() => window.open('https://pentahoportaldeinformacoes.conab.gov.br/pentaho/api/repos/%3Ahome%3APROHORT%3AprecoDia.wcdf/generatedContent?userid=pentaho&password=password', '_blank')} 
+            variant="outline" 
+            className="hover-scale"
+          >
+            <ExternalLink className="w-4 h-4 mr-2" />
+            Preços CONAB
+          </Button>
+          <Button onClick={handleCreateBasket} className="hover-scale">
+            <Plus className="w-4 h-4 mr-2" />
+            Nova Cesta de Preços
+          </Button>
+        </div>
       </div>
 
       <Tabs defaultValue="cestas" className="w-full">
